@@ -1,0 +1,604 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="google-site-verification" content="W1NsIWH8A2iMdhmMXLMADMPv-2u_rRLi6doPdIUKU_I">
+    <meta name="description"
+        content="Daniel Willhalm is a Research Machine Learning Scientist at Layer 6 working on predictive modeling and tabular foundation models, with prior roles at Toronto Metropolitan University and Mastercard via Mitacs Elevate.">
+    <title>Daniel Willhalm | Research Machine Learning Scientist</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,700;9..144,800&family=Sora:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+
+    <style>
+        :root {
+            --bg-cream: #f4f1ea;
+            --bg-surface: #fdfbf5;
+            --ink: #132026;
+            --ink-soft: #4b5e66;
+            --line: #c8d2ce;
+            --teal: #0c8f86;
+            --teal-deep: #0a645f;
+            --teal-soft: #d7f1ef;
+            --sun: #f1b245;
+            --nav-bg: rgba(244, 241, 234, 0.86);
+            --hero-dark: #0f2f37;
+            --hero-mid: #1b4f57;
+            --hero-light: #2b6d73;
+            --radius-lg: 24px;
+            --radius-md: 16px;
+            --shadow-soft: 0 12px 28px rgba(14, 36, 43, 0.12);
+            --shadow-strong: 0 18px 30px rgba(9, 41, 47, 0.2);
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            margin: 0;
+            font-family: "Sora", "Avenir Next", "Segoe UI", sans-serif;
+            color: var(--ink);
+            background:
+                radial-gradient(circle at 12% 6%, rgba(241, 178, 69, 0.23), transparent 36%),
+                radial-gradient(circle at 88% 16%, rgba(12, 143, 134, 0.22), transparent 32%),
+                linear-gradient(160deg, #f7f4ee 0%, #efebe1 100%);
+            line-height: 1.65;
+        }
+
+        .top-nav {
+            position: sticky;
+            top: 0;
+            z-index: 50;
+            backdrop-filter: blur(10px);
+            background: var(--nav-bg);
+            border-bottom: 1px solid rgba(23, 43, 49, 0.12);
+        }
+
+        .nav-inner {
+            width: min(1100px, 92vw);
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 22px;
+            padding: 14px 0;
+        }
+
+        .brand {
+            font-family: "Fraunces", Georgia, serif;
+            font-weight: 700;
+            font-size: 1.05rem;
+            text-decoration: none;
+            color: var(--ink);
+            letter-spacing: 0.02em;
+        }
+
+        .nav-links {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            flex-wrap: wrap;
+            justify-content: flex-end;
+        }
+
+        .nav-links a {
+            color: var(--ink);
+            text-decoration: none;
+            font-size: 0.88rem;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            border-bottom: 2px solid transparent;
+            padding-bottom: 2px;
+            transition: border-color 180ms ease, color 180ms ease;
+        }
+
+        .nav-links a:hover {
+            color: var(--teal-deep);
+            border-color: var(--sun);
+        }
+
+        .hero {
+            color: #f7fbfb;
+            background:
+                radial-gradient(circle at 14% 18%, rgba(241, 178, 69, 0.22), transparent 42%),
+                linear-gradient(130deg, var(--hero-dark) 0%, var(--hero-mid) 58%, var(--hero-light) 100%);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::after {
+            content: "";
+            position: absolute;
+            width: 380px;
+            height: 380px;
+            right: -90px;
+            bottom: -140px;
+            background: radial-gradient(circle, rgba(255, 255, 255, 0.19) 0%, transparent 72%);
+            pointer-events: none;
+        }
+
+        .hero-inner {
+            width: min(1100px, 92vw);
+            margin: 0 auto;
+            padding: 88px 0 78px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .eyebrow {
+            display: inline-block;
+            margin: 0 0 14px;
+            padding: 7px 14px;
+            border-radius: 999px;
+            background: rgba(248, 251, 251, 0.16);
+            border: 1px solid rgba(248, 251, 251, 0.35);
+            font-size: 0.82rem;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+        }
+
+        h1 {
+            margin: 0;
+            font-family: "Fraunces", Georgia, serif;
+            font-weight: 800;
+            font-size: clamp(2.3rem, 5.6vw, 4.4rem);
+            line-height: 1.05;
+            letter-spacing: 0.02em;
+        }
+
+        .tagline {
+            margin: 20px 0 0;
+            max-width: 760px;
+            font-size: clamp(1rem, 2vw, 1.24rem);
+            color: rgba(244, 250, 250, 0.95);
+        }
+
+        .hero-actions {
+            margin-top: 32px;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+        }
+
+        .button,
+        .button-alt {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 999px;
+            padding: 11px 19px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: transform 180ms ease, box-shadow 180ms ease, background-color 180ms ease;
+        }
+
+        .button {
+            background: #f5fbfb;
+            color: #154047;
+            box-shadow: 0 8px 18px rgba(0, 0, 0, 0.16);
+        }
+
+        .button-alt {
+            border: 1px solid rgba(248, 251, 251, 0.46);
+            color: #f6fbfb;
+            background: rgba(248, 251, 251, 0.09);
+        }
+
+        .button:hover,
+        .button-alt:hover {
+            transform: translateY(-2px);
+        }
+
+        .content {
+            width: min(1100px, 92vw);
+            margin: 34px auto 74px;
+            display: grid;
+            gap: 22px;
+        }
+
+        .panel {
+            background: var(--bg-surface);
+            border: 1px solid var(--line);
+            border-radius: var(--radius-lg);
+            padding: 30px;
+            box-shadow: var(--shadow-soft);
+            animation: rise-up 620ms ease both;
+        }
+
+        .panel:nth-of-type(2) {
+            animation-delay: 70ms;
+        }
+
+        .panel:nth-of-type(3) {
+            animation-delay: 140ms;
+        }
+
+        .panel:nth-of-type(4) {
+            animation-delay: 210ms;
+        }
+
+        .panel:nth-of-type(5) {
+            animation-delay: 280ms;
+        }
+
+        .section-heading {
+            margin: 0 0 16px;
+            font-family: "Fraunces", Georgia, serif;
+            font-weight: 700;
+            font-size: clamp(1.45rem, 2.7vw, 2rem);
+            color: #10252c;
+        }
+
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1.35fr 1fr;
+            gap: 24px;
+            align-items: start;
+        }
+
+        .about-grid p {
+            margin: 0 0 14px;
+        }
+
+        .about-grid a {
+            color: var(--teal-deep);
+            text-decoration-thickness: 1px;
+            text-underline-offset: 2px;
+        }
+
+        .timeline {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: grid;
+            gap: 10px;
+        }
+
+        .timeline li {
+            display: grid;
+            grid-template-columns: 114px 1fr;
+            gap: 12px;
+            border-left: 3px solid var(--teal-soft);
+            padding: 8px 0 8px 12px;
+            background: rgba(12, 143, 134, 0.05);
+            border-radius: 8px;
+        }
+
+        .timeline .label {
+            font-size: 0.86rem;
+            font-weight: 700;
+            color: var(--teal-deep);
+            text-transform: uppercase;
+            letter-spacing: 0.04em;
+        }
+
+        .timeline .detail {
+            color: var(--ink-soft);
+            font-size: 0.95rem;
+        }
+
+        .highlight-card {
+            background: linear-gradient(145deg, #eef8f7 0%, #fff8ea 100%);
+            border: 1px solid rgba(12, 143, 134, 0.3);
+            border-radius: var(--radius-md);
+            padding: 20px;
+            box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.7);
+        }
+
+        .highlight-card h3 {
+            margin: 0 0 10px;
+            font-size: 1.22rem;
+            color: #103941;
+        }
+
+        .highlight-card p {
+            margin: 0;
+        }
+
+        .chips {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .chip {
+            display: inline-flex;
+            align-items: center;
+            padding: 8px 14px;
+            border-radius: 999px;
+            background: rgba(12, 143, 134, 0.1);
+            color: #0e4f54;
+            border: 1px solid rgba(12, 143, 134, 0.22);
+            font-size: 0.9rem;
+            font-weight: 500;
+        }
+
+        .publication-grid {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 14px;
+        }
+
+        .pub-card {
+            text-decoration: none;
+            color: var(--ink);
+            background: #ffffff;
+            border: 1px solid rgba(25, 52, 58, 0.15);
+            border-radius: var(--radius-md);
+            padding: 18px;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            transition: transform 180ms ease, box-shadow 180ms ease, border-color 180ms ease;
+        }
+
+        .pub-card:hover {
+            transform: translateY(-4px);
+            border-color: rgba(12, 143, 134, 0.38);
+            box-shadow: var(--shadow-strong);
+        }
+
+        .pub-title {
+            margin: 0;
+            font-size: 1.02rem;
+            font-weight: 700;
+            line-height: 1.35;
+        }
+
+        .pub-authors {
+            margin: 0;
+            color: var(--ink-soft);
+            font-size: 0.92rem;
+        }
+
+        .pub-meta {
+            margin: 0;
+            color: #11585f;
+            font-size: 0.86rem;
+            font-weight: 600;
+            letter-spacing: 0.03em;
+            text-transform: uppercase;
+        }
+
+        .contact-panel {
+            text-align: center;
+            background: linear-gradient(160deg, #fafaf6 0%, #eff8f7 100%);
+        }
+
+        .contact-panel p {
+            margin: 0 0 14px;
+        }
+
+        .contact-link {
+            color: #0f5a61;
+            text-decoration: none;
+            font-weight: 700;
+            border-bottom: 2px solid rgba(15, 90, 97, 0.25);
+            transition: border-color 180ms ease;
+        }
+
+        .contact-link:hover {
+            border-color: rgba(15, 90, 97, 0.75);
+        }
+
+        .site-footer {
+            text-align: center;
+            color: rgba(18, 36, 43, 0.72);
+            font-size: 0.86rem;
+            padding: 0 0 32px;
+        }
+
+        @keyframes rise-up {
+            from {
+                opacity: 0;
+                transform: translateY(10px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @media (max-width: 930px) {
+            .about-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .publication-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 760px) {
+            .hero-inner {
+                padding: 74px 0 66px;
+            }
+
+            .panel {
+                padding: 24px;
+            }
+
+            .timeline li {
+                grid-template-columns: 1fr;
+                gap: 4px;
+            }
+        }
+
+        @media (max-width: 560px) {
+            .nav-inner {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 9px;
+            }
+
+            .nav-links {
+                gap: 11px;
+            }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            html {
+                scroll-behavior: auto;
+            }
+
+            * {
+                animation: none !important;
+                transition: none !important;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <nav class="top-nav">
+        <div class="nav-inner">
+            <a href="#top" class="brand">Daniel Willhalm</a>
+            <ul class="nav-links">
+                <li><a href="#about">About</a></li>
+                <li><a href="#collaboration">Collaboration</a></li>
+                <li><a href="#interests">Interests</a></li>
+                <li><a href="#publications">Publications</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <header class="hero" id="top">
+        <div class="hero-inner">
+            <p class="eyebrow">Research Machine Learning Scientist at Layer 6</p>
+            <h1>Daniel Willhalm</h1>
+            <p class="tagline">
+                I work on predictive modeling, in particular tabular foundation models, and am also interested in fraud detection and graph-based learning.
+            </p>
+            <div class="hero-actions">
+                <a class="button" href="mailto:danielw@layer6.ai">Email Me</a>
+                <a class="button-alt" href="#publications">See Publications</a>
+            </div>
+        </div>
+    </header>
+
+    <main class="content">
+        <section class="panel" id="about">
+            <h2 class="section-heading">About</h2>
+            <div class="about-grid">
+                <div>
+                    <p>
+                        I am currently a Research Machine Learning Scientist at Layer 6, where I work on predictive
+                        modeling, in particular tabular foundation models. I received my PhD from the University of
+                        Groningen under the supervision of Christian Hirsch. The title of my dissertation is
+                        <a href="https://research.rug.nl/en/publications/limit-theory-for-spatial-random-networks"
+                            target="_blank" rel="noopener noreferrer">Limit theory for spatial random networks</a>.
+                    </p>
+                    <p>
+                        I was a post-doc at Toronto Metropolitan University. Until last month, while at TMU, I was also
+                        a research intern at Mastercard through a Mitacs Elevate grant focused on fraud detection in
+                        financial transaction networks.
+                    </p>
+                    <p>
+                        I also love basketball and am a passionate skier.
+                    </p>
+                </div>
+
+                <ul class="timeline" aria-label="Career timeline">
+                    <li>
+                        <span class="label">PhD</span>
+                        <span class="detail">University of Groningen - limit theory for spatial random networks.</span>
+                    </li>
+                    <li>
+                        <span class="label">Post-doc</span>
+                        <span class="detail">Toronto Metropolitan University - machine learning research.</span>
+                    </li>
+                    <li>
+                        <span class="label">Internship</span>
+                        <span class="detail">Mastercard research intern via Mitacs Elevate (concurrent with TMU).</span>
+                    </li>
+                    <li>
+                        <span class="label">Current</span>
+                        <span class="detail">Research Machine Learning Scientist at Layer 6, focused on predictive modeling and tabular foundation models.</span>
+                    </li>
+                </ul>
+            </div>
+        </section>
+
+        <section class="panel" id="collaboration">
+            <h2 class="section-heading">Industry Collaboration and Grant</h2>
+            <div class="highlight-card">
+                <h3>Mitacs Elevate x Mastercard</h3>
+                <p>
+                    Through a Mitacs Elevate grant, I worked with Mastercard on fraud detection in financial
+                    transaction networks, turning research ideas from graph-based and probabilistic modeling into more
+                    practical detection strategies.
+                </p>
+            </div>
+        </section>
+
+        <section class="panel" id="interests">
+            <h2 class="section-heading">Research Interests</h2>
+            <div class="chips">
+                <span class="chip">Machine Learning</span>
+                <span class="chip">Fraud Detection</span>
+                <span class="chip">Graph Neural Networks</span>
+                <span class="chip">Predictive Modeling</span>
+                <span class="chip">Tabular Foundation Models</span>
+            </div>
+        </section>
+
+        <section class="panel" id="publications">
+            <h2 class="section-heading">Publications and Preprints</h2>
+            <div class="publication-grid">
+                <a class="pub-card" href="https://arxiv.org/pdf/2403.09310.pdf" target="_blank" rel="noopener noreferrer">
+                    <p class="pub-title">Large deviations of one-hidden-layer neural networks</p>
+                    <p class="pub-authors">Christian Hirsch, Daniel Willhalm</p>
+                    <p class="pub-meta">arXiv, 2024</p>
+                </a>
+
+                <a class="pub-card" href="https://alea.impa.br/articles/v21/21-38.pdf" target="_blank" rel="noopener noreferrer">
+                    <p class="pub-title">Lower large deviations for geometric functionals in sparse, critical and dense regimes</p>
+                    <p class="pub-authors">Christian Hirsch, Daniel Willhalm</p>
+                    <p class="pub-meta">ALEA, 2024</p>
+                </a>
+
+                <a class="pub-card"
+                    href="https://www.sciencedirect.com/science/article/pii/S0304414923001230/pdfft?md5=af20b357ad86116d581d411c913185ec&pid=1-s2.0-S0304414923001230-main.pdf"
+                    target="_blank" rel="noopener noreferrer">
+                    <p class="pub-title">Limit theory of sparse random geometric graphs in high dimensions</p>
+                    <p class="pub-authors">Gilles Bonnet, Christian Hirsch, Daniel Rosen, Daniel Willhalm</p>
+                    <p class="pub-meta">Stochastic Processes and Their Applications, 2023</p>
+                </a>
+
+                <a class="pub-card" href="https://doi.org/10.1017/apr.2023.10" target="_blank" rel="noopener noreferrer">
+                    <p class="pub-title">Upper large deviations for power-weighted edge lengths in spatial random networks</p>
+                    <p class="pub-authors">Christian Hirsch, Daniel Willhalm</p>
+                    <p class="pub-meta">Advances in Applied Probability, 2024</p>
+                </a>
+            </div>
+        </section>
+
+        <section class="panel contact-panel" id="contact">
+            <h2 class="section-heading">Contact</h2>
+            <p>
+                For collaboration, speaking invitations, or research questions, reach out by email.
+            </p>
+            <a class="contact-link" href="mailto:danielw@layer6.ai">danielw@layer6.ai</a>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <p>Daniel Willhalm</p>
+    </footer>
+</body>
+
+</html>
